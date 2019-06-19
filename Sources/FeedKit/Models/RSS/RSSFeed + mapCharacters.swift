@@ -152,6 +152,13 @@ extension RSSFeed {
         case .rssChannelItemMediaScenesMediaSceneSceneDescription:  self.items?.last?.media?.mediaScenes?.last?.sceneDescription    = self.items?.last?.media?.mediaScenes?.last?.sceneDescription?.appending(string) ?? string
         case .rssChannelItemMediaScenesMediaSceneSceneStartTime:    self.items?.last?.media?.mediaScenes?.last?.sceneStartTime      = string.toDuration()
         case .rssChannelItemMediaScenesMediaSceneSceneEndTime:      self.items?.last?.media?.mediaScenes?.last?.sceneEndTime        = string.toDuration()
+            
+        case .rssChannelItemEquinuxBuild:                           self.items?.last?.equinuxProduct?.build                         = self.items?.last?.equinuxProduct?.build?.appending(string) ?? string
+        case .rssChannelItemEquinuxFilepattern:                     self.items?.last?.equinuxProduct?.filePattern                   = self.items?.last?.equinuxProduct?.filePattern?.appending(string) ?? string
+        case .rssChannelItemEquinuxProductGroup:                    self.items?.last?.equinuxProduct?.productGroup                  = self.items?.last?.equinuxProduct?.productGroup?.appending(string) ?? string
+        case .rssChannelItemEquinuxProductType:                     self.items?.last?.equinuxProduct?.productType                   = self.items?.last?.equinuxProduct?.productType?.appending(string) ?? string
+        case .rssChannelItemEquinuxProductPID:                      self.items?.last?.equinuxProduct?.productPID                    = self.items?.last?.equinuxProduct?.productPID?.appending(string) ?? string
+        case .rssChannelItemEquinuxSubProduct:                      self.items?.last?.equinuxProduct?.subProducts.last?.filePattern = self.items?.last?.equinuxProduct?.subProducts.last?.filePattern?.appending(string) ?? string
         default: break
         }
         

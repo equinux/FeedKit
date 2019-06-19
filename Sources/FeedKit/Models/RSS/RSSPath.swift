@@ -189,4 +189,12 @@ enum RSSPath: String {
     case rssChannelItemMediaGroupMediaRating                    = "/rss/channel/item/media:group/media:rating"
     case rssChannelItemMediaGroupMediaContent                   = "/rss/channel/item/media:group/media:content"
     
+    // MARK: equinux
+    
+    case rssChannelItemEquinuxBuild                             = "/rss/channel/item/equinux:build"
+    case rssChannelItemEquinuxFilepattern                       = "/rss/channel/item/equinux:filepattern"
+    case rssChannelItemEquinuxProductGroup                      = "/rss/channel/item/equinux:productGroup"
+    case rssChannelItemEquinuxProductType                       = "/rss/channel/item/equinux:productType"
+    case rssChannelItemEquinuxProductPID                        = "/rss/channel/item/equinux:productPID"
+    case rssChannelItemEquinuxSubProduct                        = "/rss/channel/item/equinux:subproduct"
 }

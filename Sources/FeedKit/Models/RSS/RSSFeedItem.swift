@@ -193,6 +193,9 @@ public class RSSFeedItem {
     /// capabilities of RSS 2.0.
     public var media: MediaNamespace?
     
+    /// Equinux product.
+    public var equinuxProduct: EquinuxProduct?
+    
     public init() { }
     
 }

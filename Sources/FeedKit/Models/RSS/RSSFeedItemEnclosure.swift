@@ -56,6 +56,8 @@ public class RSSFeedItemEnclosure {
         /// Example: audio/mpeg
         public var type: String?
         
+        /// App version for Sparkle enclosures.
+        public var sparkleVersion: String?
     }
     
     /// The element's attributes.
@@ -89,7 +91,7 @@ extension RSSFeedItemEnclosure.Attributes {
         self.url     = attributeDict["url"]
         self.type    = attributeDict["type"]
         self.length  = Int64(attributeDict["length"] ?? "")
-        
+        self.sparkleVersion = attributeDict["sparkle:version"]
     }
     
 }

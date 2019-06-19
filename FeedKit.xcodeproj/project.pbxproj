@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86D8DC0622BA63FC0018A119 /* EquinuxProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8DC0522BA63FC0018A119 /* EquinuxProduct.swift */; };
+		86D8DC0722BA64110018A119 /* EquinuxProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8DC0522BA63FC0018A119 /* EquinuxProduct.swift */; };
+		86D8DC0822BA64110018A119 /* EquinuxProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8DC0522BA63FC0018A119 /* EquinuxProduct.swift */; };
+		86D8DC0922BA64120018A119 /* EquinuxProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D8DC0522BA63FC0018A119 /* EquinuxProduct.swift */; };
 		A01F67A01D1692B20038910F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01F679C1D16922D0038910F /* ViewController.swift */; };
 		A01F67A11D16931A0038910F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01F67991D1691510038910F /* Main.storyboard */; };
 		A081C41921C14B04001BC29C /* Date + codingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A081C41821C14B04001BC29C /* Date + codingStrategy.swift */; };
@@ -569,6 +573,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		86D8DC0522BA63FC0018A119 /* EquinuxProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EquinuxProduct.swift; sourceTree = "<group>"; };
 		A01F679A1D1691510038910F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A01F679C1D16922D0038910F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A0370EB91CEF9D5A009583A3 /* FeedKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FeedKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -802,6 +807,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86D8DC0422BA63E00018A119 /* Equinux */ = {
+			isa = PBXGroup;
+			children = (
+				86D8DC0522BA63FC0018A119 /* EquinuxProduct.swift */,
+			);
+			path = Equinux;
+			sourceTree = "<group>";
+		};
 		A09C85271CE9B0C300D20CAB /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -990,6 +1003,7 @@
 			children = (
 				A0F6B7E61F6E6E9600220625 /* Content */,
 				A0F6B7E81F6E6E9600220625 /* Dublin Core */,
+				86D8DC0422BA63E00018A119 /* Equinux */,
 				A0F6B7EA1F6E6E9600220625 /* iTunes */,
 				A0F6B7F01F6E6E9600220625 /* Media */,
 				A0F6B80D1F6E6E9600220625 /* Syndication */,
@@ -1425,6 +1439,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1588,6 +1603,7 @@
 				A0F6B8861F6E6EB800220625 /* XMLFeedParser.swift in Sources */,
 				A0F6B8391F6E6EB800220625 /* AtomFeedContributor.swift in Sources */,
 				A0F6B87A1F6E6EB800220625 /* RSSFeedItemGUID.swift in Sources */,
+				86D8DC0922BA64120018A119 /* EquinuxProduct.swift in Sources */,
 				A0F6B8381F6E6EB800220625 /* AtomFeedCategory.swift in Sources */,
 				A0F6B8471F6E6EB800220625 /* JSONFeedAttachment.swift in Sources */,
 				A0F6B8791F6E6EB800220625 /* RSSFeedItemEnclosure.swift in Sources */,
@@ -1782,6 +1798,7 @@
 				A0F6B93E1F6E6EBB00220625 /* XMLFeedParser.swift in Sources */,
 				A0F6B8F11F6E6EBA00220625 /* AtomFeedContributor.swift in Sources */,
 				A0F6B9321F6E6EBB00220625 /* RSSFeedItemGUID.swift in Sources */,
+				86D8DC0722BA64110018A119 /* EquinuxProduct.swift in Sources */,
 				A0F6B8F01F6E6EBA00220625 /* AtomFeedCategory.swift in Sources */,
 				A0F6B8FF1F6E6EBB00220625 /* JSONFeedAttachment.swift in Sources */,
 				A0F6B9311F6E6EBB00220625 /* RSSFeedItemEnclosure.swift in Sources */,
@@ -1883,6 +1900,7 @@
 				A0F6B8E21F6E6EBA00220625 /* XMLFeedParser.swift in Sources */,
 				A0F6B8951F6E6EBA00220625 /* AtomFeedContributor.swift in Sources */,
 				A0F6B8D61F6E6EBA00220625 /* RSSFeedItemGUID.swift in Sources */,
+				86D8DC0822BA64110018A119 /* EquinuxProduct.swift in Sources */,
 				A0F6B8941F6E6EBA00220625 /* AtomFeedCategory.swift in Sources */,
 				A0F6B8A31F6E6EBA00220625 /* JSONFeedAttachment.swift in Sources */,
 				A0F6B8D51F6E6EBA00220625 /* RSSFeedItemEnclosure.swift in Sources */,
@@ -1984,6 +2002,7 @@
 				A0F6B99A1F6E6EBB00220625 /* XMLFeedParser.swift in Sources */,
 				A0F6B94D1F6E6EBB00220625 /* AtomFeedContributor.swift in Sources */,
 				A0F6B98E1F6E6EBB00220625 /* RSSFeedItemGUID.swift in Sources */,
+				86D8DC0622BA63FC0018A119 /* EquinuxProduct.swift in Sources */,
 				A0F6B94C1F6E6EBB00220625 /* AtomFeedCategory.swift in Sources */,
 				A0F6B95B1F6E6EBB00220625 /* JSONFeedAttachment.swift in Sources */,
 				A0F6B98D1F6E6EBB00220625 /* RSSFeedItemEnclosure.swift in Sources */,

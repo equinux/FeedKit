@@ -479,6 +479,31 @@ extension RSSFeed {
             }
 
             
+            
+            // MARK: equinux
+            
+        case .rssChannelItemEquinuxBuild,
+        .rssChannelItemEquinuxFilepattern,
+        .rssChannelItemEquinuxProductGroup,
+        .rssChannelItemEquinuxProductType,
+        .rssChannelItemEquinuxProductPID:
+            if  self.items?.last?.equinuxProduct == nil {
+                self.items?.last?.equinuxProduct = EquinuxProduct()
+            }
+            
+        case .rssChannelItemEquinuxSubProduct:
+            if  self.items?.last?.equinuxProduct == nil {
+                self.items?.last?.equinuxProduct = EquinuxProduct()
+            }
+            guard let binary = attributes["binary"] else {
+                return
+            }
+            let appStoreValue = attributes["appStore"]
+            let appStoreBool = appStoreValue == "yes" || appStoreValue == "YES"
+            let subProduct = EquinuxSubProduct(binary: binary, subtitle: attributes["subtitle"], tag: attributes["tag"], appStore: appStoreBool)
+            self.items?.last?.equinuxProduct?.subProducts.append(subProduct)
+        
+            
         default: break
             
             
