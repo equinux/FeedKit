@@ -99,7 +99,7 @@ class XMLFeedParser: NSObject, XMLParserDelegate, FeedParserProtocol {
         
         switch feedType {
         case .atom:
-            if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+            if let path = AtomPath(pathString: self.currentXMLDOMPath.absoluteString) {
                 self.atomFeed?.map(string, for: path)
             }
             
@@ -145,8 +145,8 @@ extension XMLFeedParser {
             if  self.atomFeed == nil {
                 self.atomFeed = AtomFeed()
             }
-            if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString) {
-                self.atomFeed?.map(attributeDict, for: path)
+            if let path = AtomPath(pathString: self.currentXMLDOMPath.absoluteString) {
+                self.atomFeed?.map(attributeDict, for: path, elementName: elementName)
             }
             
         case .rdf:
@@ -175,6 +175,19 @@ extension XMLFeedParser {
         namespaceURI: String?,
         qualifiedName qName: String?)
     {
+        if let feedType = self.feedType {
+            switch feedType {
+                
+            case .atom:
+                if let path = AtomPath(pathString: self.currentXMLDOMPath.absoluteString) {
+                    self.atomFeed?.end(path: path, elementName: elementName)
+                }
+                
+            case .rdf, .rss: break
+                
+            }
+        }
+        
         // Update the current path along the XML's DOM elements by deleting last component.
         self.currentXMLDOMPath = self.currentXMLDOMPath.deletingLastPathComponent()
         if currentXMLDOMPath.absoluteString == "/" {

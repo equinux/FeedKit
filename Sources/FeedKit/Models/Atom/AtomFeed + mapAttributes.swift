@@ -32,7 +32,7 @@ extension AtomFeed {
     /// - Parameters:
     ///   - attributes: The attribute dictionary to map to the model.
     ///   - path: The path of feed's element.
-    func map(_ attributes: [String : String], for path: AtomPath) {
+    func map(_ attributes: [String : String], for path: AtomPath, elementName: String) {
         
         switch path {
             
@@ -94,6 +94,12 @@ extension AtomFeed {
                 self.entries?.last?.summary = AtomFeedEntrySummary(attributes: attributes)
             }
             
+        case .feedEntrySummaryContent:
+            
+            let reconstructedAttributes = attributes.map { "\($0.key)=\"\($0.value)\"" }.joined(separator: " ")
+            let reconstructedElement = "<\(elementName)\(reconstructedAttributes.isEmpty ? "" : " " + reconstructedAttributes)>"
+            self.entries?.last?.summary?.value = (self.entries?.last?.summary?.value ?? "").appending(reconstructedElement)
+
         case .feedEntryAuthor:
             
             if  self.entries?.last?.authors == nil {
@@ -349,6 +355,20 @@ extension AtomFeed {
             
         }
         
+    }
+    
+    func end(path: AtomPath, elementName: String) {
+        
+        switch path {
+            
+        case .feedEntrySummaryContent:
+            
+            let reconstructedElement = "</\(elementName)>"
+            self.entries?.last?.summary?.value = (self.entries?.last?.summary?.value ?? "").appending(reconstructedElement)
+
+        default: break
+            
+        }
     }
     
 }

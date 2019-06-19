@@ -51,6 +51,7 @@ enum AtomPath: String {
     case feedEntry                                         = "/feed/entry"
     case feedEntryTitle                                    = "/feed/entry/title"
     case feedEntrySummary                                  = "/feed/entry/summary"
+    case feedEntrySummaryContent                           = "/feed/entry/summary/.content"
     case feedEntryLink                                     = "/feed/entry/link"
     case feedEntryUpdated                                  = "/feed/entry/updated"
     case feedEntryCategory                                 = "/feed/entry/category"
@@ -106,5 +107,25 @@ enum AtomPath: String {
     case feedEntryMediaGroupMediaCategory                  = "/feed/entry/media:group/media:category"
     case feedEntryMediaGroupMediaRating                    = "/feed/entry/media:group/media:rating"
     case feedEntryMediaGroupMediaContent                   = "/feed/entry/media:group/media:content"
-    
+
+    /// Initialze with a raw path string, allowing for some paths to be mapped.
+    init?(pathString: String) {
+        if let exactPath = AtomPath(rawValue: pathString) {
+            self = exactPath
+            return
+        }
+        
+        if pathString.hasSuffix("/"), let exactPath = AtomPath(rawValue: String(pathString.dropLast())) {
+            self = exactPath
+            return
+        }
+        
+        if pathString.hasPrefix(AtomPath.feedEntrySummary.rawValue) {
+            // All content inside the summary tag should be treated as content of the summary tag.
+            self = .feedEntrySummaryContent
+            return
+        }
+        
+        return nil
+    }
 }

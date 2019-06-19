@@ -48,7 +48,8 @@ extension AtomFeed {
         case .feedLogo:                                        self.logo                                                         = self.logo?.appending(string) ?? string
         case .feedRights:                                      self.rights                                                       = self.rights?.appending(string) ?? string
         case .feedEntryTitle:                                  self.entries?.last?.title                                         = self.entries?.last?.title?.appending(string) ?? string
-        case .feedEntrySummary:                                self.entries?.last?.summary?.value                                = self.entries?.last?.summary?.value?.appending(string) ?? string
+        case .feedEntrySummary:                                addSummaryContent(string)
+        case .feedEntrySummaryContent:                         addSummaryContent(string)
         case .feedEntryUpdated:                                self.entries?.last?.updated                                       = string.toPermissiveDate()
         case .feedEntryID:                                     self.entries?.last?.id                                            = self.entries?.last?.id?.appending(string) ?? string
         case .feedEntryContent:                                self.entries?.last?.content?.value                                = self.entries?.last?.content?.value?.appending(string) ?? string
@@ -81,6 +82,27 @@ extension AtomFeed {
         case .feedEntryMediaScenesMediaSceneSceneEndTime:      self.entries?.last?.media?.mediaScenes?.last?.sceneEndTime        = string.toDuration()
         default: break
         }
+    }
+
+    private func addSummaryContent(_ string: String) {
+        
+        guard let summary = self.entries?.last?.summary else {
+            return
+        }
+        
+        switch summary.attributes?.type {
+            
+        case "html", "xhtml":
+            
+            let xmlEscaped = (XMLNode.text(withStringValue: string) as? XMLNode)?.xmlString ?? string
+            summary.value = summary.value?.appending(xmlEscaped) ?? xmlEscaped
+            
+        default:
+            
+            summary.value = summary.value?.appending(string) ?? string
+            
+        }
+        
     }
     
 }
